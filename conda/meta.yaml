@@ -1,6 +1,6 @@
 {% set name = "Hydrograph-py" %}
 {% set version = "1.0.1" %}
-{% set sha256 = "747c6b0f7f45817e2d65f1233d896729f96e9af4375cfd8bc6db436498e80fe4" %}
+{% set sha256 = "2926df86e4a7b5685ba8d3ddb3cd82fe201e6ac66952c9cef700af0d17fd9c65" %}
 
 # sha256 is the prefered checksum -- you can get it for a file with:
 #  `openssl sha256 <file name>`.
