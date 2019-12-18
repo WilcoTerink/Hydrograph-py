@@ -10,7 +10,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 name = 'Hydrograph-py'
 main_package = 'Hydrograph'
 # datasets = 'datasets'
-version = '1.0.0'
+version = '1.0.1'
 descrip = 'Hydrological python package for hydrograph analysis'
 
 

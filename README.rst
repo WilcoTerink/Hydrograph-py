@@ -3,11 +3,17 @@ Hydrograph-py
 
 Hydrograph-py is a hydrological Python package that provides some tools for:
 
+
   1. Separation of flow time-series into peak flow and baseflow.
+  
   2. Filtering of peak flow events given a minimum event duration.
+  
   3. Calculation of peak event volumes.
+  
   4. Calculation of maximum annual peak flow and maximum annual peak event volume.
+  
   5. Extreme value analysis using GEV fitting and plotting functions.
+  
   
 Documentation
 -------------
