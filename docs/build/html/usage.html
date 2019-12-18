@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Hydrograph-py &mdash; Hydrograph-py 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="references.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Hydrograph-py
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Hydrograph-py</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sepbaseflow">sepBaseflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filterpeaks">filterpeaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maxflowvolstats">maxFlowVolStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceed">exceed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fitgev">fitGEV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotpdf">plotPDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotcdf">plotCDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotgev">plotGEV</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hydrograph-py</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Using Hydrograph-py</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-hydrograph-py">
+<span id="usage"></span><h1>Using Hydrograph-py<a class="headerlink" href="#using-hydrograph-py" title="Permalink to this headline">¶</a></h1>
+<p>After installation, the functions from the python package can be imported by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Hydrograph.hydrograph</span> <span class="k">import</span> <span class="n">sepBaseflow</span><span class="p">,</span> <span class="n">filterpeaks</span><span class="p">,</span> <span class="n">maxFlowVolStats</span>
+
+<span class="kn">from</span> <span class="nn">Hydrograph.extreme_analysis</span> <span class="k">import</span> <span class="n">exceed</span><span class="p">,</span> <span class="n">fitGEV</span><span class="p">,</span> <span class="n">plotPDF</span><span class="p">,</span> <span class="n">plotCDF</span><span class="p">,</span> <span class="n">plotGEV</span>
+</pre></div>
+</div>
+<p>This imports all the functions that you might need for your hydrologrical analysis. The functions are described below.</p>
+<div class="section" id="sepbaseflow">
+<h2>sepBaseflow<a class="headerlink" href="#sepbaseflow" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">sepBaseflow</span></code> function separates a time-series into baseflow and peakflow. Fills missing flow records by interpolation.
+The input and output for this function are shown below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sepBaseflow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.000546</span><span class="p">,</span> <span class="n">dt_max</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">tp_min</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Separate a time-series into baseflow and peakflow. Fills missing flow records by interpolation.</span>
+
+<span class="sd">    -----------------------------------------------------------------------------------------------</span>
+<span class="sd">    Input:</span>
+<span class="sd">        x:          Pandas dataframe with Index being a pandas datetime index and &#39;Date&#39; label. Dataframe should.</span>
+<span class="sd">                    contain one column for flow data, and should be labeled &#39;Total runoff [m^3 s^-1]&#39;.</span>
+<span class="sd">        dt:         Minimum time-step interval (in minutes) for analysing the data. Minute choices are 5, 15, or 60.</span>
+<span class="sd">        k:          Slope of the dividing line; i.e. slope that defines when peakflow event starts and baseflow separation occurs.</span>
+<span class="sd">                    Default is 0.000546  m^3 s^-1 km^-2 h^-1 (Hewlett and Hibbert 1967).</span>
+<span class="sd">        A:          Catchment area in km^2 upstream of point of interest.</span>
+<span class="sd">        dt_max:     Only interpolate over maximum number of consecutive NaN defined over time period dt_max in hours.</span>
+<span class="sd">        tp_min:     Minimum duration of runoff peak in hours to be selected as being a peak.</span>
+<span class="sd">    -----------------------------------------------------------------------------------------------</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        df_final:    Pandas dataframe with datetime index and the following columns:</span>
+<span class="sd">                        dt [hour]:                       Time difference in hours between two records.</span>
+<span class="sd">                        Total runoff [m^3 s^-1]:         Recorded flow in cumecs for that timestamp.</span>
+<span class="sd">                        Total runoff interp. [m^3 s^-1]: Interpolated recorded flow in cumecs.</span>
+<span class="sd">                        Baseflow [m^3 s^-1]:             Calculated baseflow in cumecs for that timestamp.</span>
+<span class="sd">                        Peakflow [m^3 s^-1]:             Calculated peakflow in cumecs for that timestamp.</span>
+<span class="sd">                        Peak nr.:                        Peak number in sequence. Each peakflow event (i.e. flow above baseflow curve) is given a unique number</span>
+<span class="sd">                                                         if it classifies as being a peak after filtering.</span>
+<span class="sd">                        Peakflow starts:                 Timestamp when peakflow starts (moment when runoff peak exceeds baseflow curve).</span>
+<span class="sd">                        Peakflow ends:                   Timestamp when peakflow ends (moment when runoff peak itersects again with baseflow curve).</span>
+<span class="sd">                        Flow volume [m^3]:               Volume of the flow between two time-steps (total volume; i.e. baseflow + peakflow).</span>
+<span class="sd">                        Max flow [m^3 s^-1]:             Maximum flow of peak flow event.</span>
+<span class="sd">                        Date max. flow:                  Timestamp of maximum flow of peak flow event.</span>
+<span class="sd">                        Tp [hour]:                       Time to peak.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filterpeaks">
+<h2>filterpeaks<a class="headerlink" href="#filterpeaks" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">filterpeaks</span></code> function filters the peaks from the baseflow and assigns a peak nr. to it. Peaks are only assigned if they last at least as long as the tp_min threshold.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filterpeaks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tp_min</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Filters the peaks from the baseflow and assigns a peak nr. to it. Peaks are only</span>
+<span class="sd">    assigned if they last at least as long as the tp_min threshold.</span>
+
+<span class="sd">    --------------------------------------------------------------------------------</span>
+<span class="sd">    Input:</span>
+<span class="sd">        x:        Pandas dataframe with datetime index with &#39;Date&#39; label and columns:</span>
+<span class="sd">                    Peakflow [m^3 s^-1]    Peakflow in cumecs for that timestamp (=Total flow - baseflow).</span>
+<span class="sd">                    dt [hour]              Time difference in hours between two records.</span>
+<span class="sd">        tp_min:   Minimum duration of runoff peak in hours to be selected as being a peak.</span>
+
+<span class="sd">    ---------------------------------------------------------------------------------</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        df_final:    Pandas dataframe with datetime index and &#39;Peak nr.&#39; as added column. Records for which no</span>
+<span class="sd">                     peakflow nr. has been assigned are set to NaN for the &#39;Peakflow [m^3 s^-1]&#39; column.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="maxflowvolstats">
+<h2>maxFlowVolStats<a class="headerlink" href="#maxflowvolstats" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">maxFlowVolStats</span></code> function calculates the annual maximum flow peak (crest) and maximum annual flow event volume for each year.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">maxFlowVolStats</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Calculates the annual maximum flow peak (crest) and maximum annual flow volume for each year. The flow volume is calculated for each</span>
+<span class="sd">    peakflow event. These events can be determined using the &#39;sepBaseflow&#39; function. The volume for each event is calculated as the area</span>
+<span class="sd">    under the total flow curve from the start till the end of the event.</span>
+
+<span class="sd">    ------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="sd">    Input:</span>
+<span class="sd">        df:    Pandas dataframe with datetime index with &#39;Date&#39; label and columns:</span>
+<span class="sd">                  Date max. flow:                     Timestamp of maximum flow of peak flow event.</span>
+<span class="sd">                  Max. flow [m^3 s^-1]:               Maximum crest flow of each identified flow peak.</span>
+<span class="sd">                  Total runoff interp. [m^3 s^-1]:    Recorded (interpolated) flow in cumecs.</span>
+<span class="sd">                  dt [hour]:                          Time difference in hours between two records.</span>
+<span class="sd">                  Flow volume [m^3]:                  Volume of the flow between two time-steps (total volume; i.e. baseflow + peakflow).</span>
+<span class="sd">                  Peak nr.:                           Assigned peak number to each flow peak.</span>
+<span class="sd">    ------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        vol_peak_combined:     Pandas dataframe with the following columns:</span>
+<span class="sd">            Year max flow:                    Year for which the maximum annual peak flow and maximum annual peak flow volume are calculated.</span>
+<span class="sd">            dt [hour]:                        Duration of the maximum flow peak in hours.</span>
+<span class="sd">            Max. flow [m^3 s^-1]              Maximum peak flow of the maximum annual peak flow volume event.</span>
+<span class="sd">            Total runoff interp. [m^3 s^-1]   Maximum prak flow of the maximum annual peak flow event.</span>
+<span class="sd">            Avg. volume rate [m^3 s^-1]       Average flow rate of the maximum annual peak flow volume event (volume/duration).</span>
+<span class="sd">            Flow volume [MCM]                 Maximum annual peak flow volume in MCM.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+
+<span class="s1">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exceed">
+<h2>exceed<a class="headerlink" href="#exceed" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">exceed</span></code> function calculates the exceedance probability and return period for data in Pandas Series x.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exceed</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Calculates exceedance probability and return period for data in Pandas series x.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">nonexc</span> <span class="o">=</span> <span class="n">ind</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">exc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">nonexc</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">exc</span>
+    <span class="k">return</span> <span class="n">exc</span><span class="p">,</span> <span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fitgev">
+<h2>fitGEV<a class="headerlink" href="#fitgev" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">fitGEV</span></code> fits a Generalized Extreme Value (GEV) distribution <a class="reference internal" href="references.html#walshaw2014" id="id1">[3]</a> to the data in x. GEV is fitted using the Maximum Likelihood Estimation method <a class="reference internal" href="references.html#prescott1983" id="id2">[2]</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fitGEV</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Fit a GEV distribution to the data in x. Inverse function values are calculateded for returnperiods up to Tmax.</span>
+<span class="sd">    ---------------------------------------------------------------------------------------------------------------</span>
+<span class="sd">    Input:</span>
+<span class="sd">        x:        Pandas series of maxima</span>
+<span class="sd">        Tmax:     Maximum return period to consider to fit GEV distribution for</span>
+<span class="sd">    ---------------------------------------------------------------------------------------------------------------</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        gev_fit:    Tuple of GEV fit parameters</span>
+<span class="sd">        gev_inv:    Inverse of CDF for each T</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plotpdf">
+<h2>plotPDF<a class="headerlink" href="#plotpdf" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">plotPDF</span></code> plots the Probability Density Function (PDF) of the data in x.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Plot the PDF of data x.</span>
+<span class="sd">----------------------------------------------------------</span>
+<span class="sd">Input:</span>
+<span class="sd">    x:        Pandas series</span>
+<span class="sd">    gevfit:   Tuple with the three fitted GEV parameters</span>
+<span class="sd">    bins:     Integer indicating number of bins or a numpy array with the bin edges</span>
+<span class="sd">    xLabel:   Str label to use for x-axis</span>
+<span class="sd">    Title:    Str chart title</span>
+<span class="sd">    fname:    (Optional) Full path to filename to save the figure in *.png format</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p>An example plot is shown below.</p>
+<div class="figure align-default" id="id3" style="width: 70%">
+<span id="fig-example-pdf"></span><img alt="Example of Probability Density Function of maximum annual flows." src="_images/PDF_Rangitata_max_peak.png" />
+<p class="caption"><span class="caption-number">Figure 1 </span><span class="caption-text">Example of Probability Density Function of maximum annual flows. The area (or integral) under the histogram will sum to 1.
+This is achieved by dividing the count by the number of observations times the bin width and not dividing by the total number of observations.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="plotcdf">
+<h2>plotCDF<a class="headerlink" href="#plotcdf" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">plotCDF</span></code> function plots the Cumulative Density Function (CDF) of the data in x.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotCDF</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">gevfit</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">xLabel</span><span class="p">,</span> <span class="n">Title</span><span class="p">,</span> <span class="n">EventFlow</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">EventT</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">EventLabel</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Plots CDF of data in Pandas Series x.</span>
+<span class="sd">    -------------------------------------------------------------------------------------------</span>
+<span class="sd">    Input:</span>
+<span class="sd">        x:            Pandas series</span>
+<span class="sd">        gevfit:       Tuple with the three fitted GEV parameters</span>
+<span class="sd">        e:            Numpy array with exceedance probabilities</span>
+<span class="sd">        xLabel:       Str label to use for x-axis</span>
+<span class="sd">        Title:        Str chart title</span>
+<span class="sd">        EventFlow:    (Optional) Flow of event that needs to be highlighted as a separate marker</span>
+<span class="sd">        EventT:       (Optional) Return period of flow of event that needs to be highlighted as a separate marker</span>
+<span class="sd">        EventLabel:   (Optional) Legend label of flow of event that needs to be highlighted as a separate marker</span>
+<span class="sd">        fname:        (Optional) Full path to filename to save the figure in *.png format</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p>An example plot is shown below.</p>
+<div class="figure align-default" id="id4" style="width: 70%">
+<span id="fig-example-cdf"></span><img alt="Example of Cumulative Density Function of maximum annual flows." src="_images/CDF_Rangitata_max_peak.png" />
+<p class="caption"><span class="caption-number">Figure 2 </span><span class="caption-text">Example of Cumulative Density Function of maximum annual flows.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="plotgev">
+<h2>plotGEV<a class="headerlink" href="#plotgev" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">plotGEV</span></code> plots the fitted GEV and data points for the returnperiods up to Tmax.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotGEV</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">gevinv</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">,</span> <span class="n">yLabel</span><span class="p">,</span> <span class="n">Title</span><span class="p">,</span> <span class="n">EventFlow</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">EventT</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">EventLabel</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Plots GEV of data x.</span>
+<span class="sd">    -------------------------------------------------------------------------------------------</span>
+<span class="sd">    Input:</span>
+<span class="sd">        x:            Pandas series of maxima</span>
+<span class="sd">        t:            Exceedance return periods associated with data in x</span>
+<span class="sd">        gevinv:       Inverse CDF for values associated with return periods up to Tmax</span>
+<span class="sd">        Tmax:         Maximum return period to consider to fit GEV distribution for</span>
+<span class="sd">        yLabel:       Str label to use for y-axis</span>
+<span class="sd">        Title:        Str chart title</span>
+<span class="sd">        EventFlow:    (Optional) Flow of event that needs to be highlighted as a separate marker</span>
+<span class="sd">        EventT:       (Optional) Return period of flow of event that needs to be highlighted as a separate marker</span>
+<span class="sd">        EventLabel:   (Optional) Legend label of flow of event that needs to be highlighted as a separate marker</span>
+<span class="sd">        fname:        (Optional) Full path to filename to save the figure in *.png format</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p>An example plot is shown below.</p>
+<div class="figure align-default" id="id5" style="width: 70%">
+<span id="fig-example-gev"></span><img alt="Example of GEV fit and data points versus return periods." src="_images/GEV_Rangitata_max_peak.png" />
+<p class="caption"><span class="caption-number">Figure 3 </span><span class="caption-text">Example of GEV fit and data points versus return periods.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="references.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Wilco Terink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

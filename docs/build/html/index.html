@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to the documentation of hydrograph-py &mdash; Hydrograph-py 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Hydrograph-py
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions in Hydrograph-py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Hydrograph-py</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to the documentation of hydrograph-py</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-the-documentation-of-hydrograph-py">
+<h1>Welcome to the documentation of hydrograph-py<a class="headerlink" href="#welcome-to-the-documentation-of-hydrograph-py" title="Permalink to this headline">¶</a></h1>
+<p>Hydrograph-py is a hydrological Python package that provides some tools for:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Separation of flow time-series into peak flow and baseflow.</p></li>
+<li><p>Filtering of peak flow events given a minimum event duration.</p></li>
+<li><p>Calculation of peak event volumes.</p></li>
+<li><p>Calculation of maximum annual peak flow and maximum annual peak event volume.</p></li>
+<li><p>Extreme value analysis using GEV fitting and plotting functions.</p></li>
+</ol>
+</div></blockquote>
+<p>Streamflow separation in this package is based on the principle introduced by <a class="reference internal" href="references.html#hewlett1967" id="id1">[1]</a>. They separated the hydrograph into
+“quickflow” and “delayed flow” components by arbitrarily projecting a line of constant slope from the beginning of any stream rise until
+it intersected the falling side of the hydrograph.</p>
+</div>
+<div class="section" id="contents">
+<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions in Hydrograph-py</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#sepbaseflow">sepBaseflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#filterpeaks">filterpeaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#maxflowvolstats">maxFlowVolStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#exceed">exceed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#fitgev">fitGEV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#plotpdf">plotPDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#plotcdf">plotCDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#plotgev">plotGEV</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="copyright">
+<h1>Copyright<a class="headerlink" href="#copyright" title="Permalink to this headline">¶</a></h1>
+<p>Copyright (C) 2019 Wilco Terink. Hydrograph-py is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Wilco Terink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

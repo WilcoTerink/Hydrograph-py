@@ -1,0 +1,2 @@
+# Include the configuration file
+include Hydrograph/test/*
