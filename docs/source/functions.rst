@@ -43,10 +43,10 @@ The input and output for this function are shown below.
                             Total runoff interp. [m^3 s^-1]: Interpolated recorded flow in cumecs.
                             Baseflow [m^3 s^-1]:             Calculated baseflow in cumecs for that timestamp.
                             Peakflow [m^3 s^-1]:             Calculated peakflow in cumecs for that timestamp.
-                            Peak nr.:                        Peak number in sequence. Each peakflow event (i.e. flow above baseflow curve) is given a unique number
+                            Peak nr.:                        Peak number in sequence. Each peakflow event (i.e. flow above baseflow) is given a unique number
                                                              if it classifies as being a peak after filtering.
-                            Peakflow starts:                 Timestamp when peakflow starts (moment when runoff peak exceeds baseflow curve).
-                            Peakflow ends:                   Timestamp when peakflow ends (moment when runoff peak itersects again with baseflow curve).
+                            Peakflow starts:                 Timestamp when peakflow starts (moment when runoff peak exceeds baseflow).
+                            Peakflow ends:                   Timestamp when peakflow ends (moment when runoff peak itersects again with baseflow).
                             Flow volume [m^3]:               Volume of the flow between two time-steps (total volume; i.e. baseflow + peakflow).
                             Max flow [m^3 s^-1]:             Maximum flow of peak flow event.
                             Date max. flow:                  Timestamp of maximum flow of peak flow event.
